@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 
+function invertColors(red, blue, green) {
+
+}
+
 class Input extends React.Component {
 
   render() {
@@ -17,9 +21,16 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      red: 255,
-      green: 255,
-      blue: 255,
+      rgb: {
+        'red': 255,
+        'green': 255,
+        'blue': 255,
+      },
+      rgbInverse: {
+        'red': 255,
+        'green': 255,
+        'blue': 255,
+      }
     }
   }
 
@@ -27,20 +38,26 @@ class App extends Component {
     switch(color) {
       case 'red':
         this.setState({
-          red: event.target.value
-        });
+          rgb: {'red': event.target.value,
+                'green': this.state.rgb.green,
+                'blue': this.state.rgb.blue
+          }})
       break;
       case 'green':
         this.setState({
-          green: event.target.value
-        });
+          rgb: {'red': this.state.rgb.red,
+                'green': event.target.value,
+                'blue': this.state.rgb.blue
+          }})
         break;
       case 'blue':
         this.setState({
-          blue: event.target.value
-        });
+          rgb: {'red': this.state.rgb.red,
+                'green': this.state.rgb.green,
+                'blue': event.target.value
+          }})
         break;
-    };
+    }
   };
 
   render() {
@@ -55,7 +72,7 @@ class App extends Component {
           <Input color='blue' onChange={(e) => this.changeColor(e, 'blue')}/>
         </div>
         <div className="boxcont">
-          <Box red={this.state.red} green={this.state.green} blue={this.state.blue}/>
+          <Box red={this.state.rgb.red} green={this.state.rgb.green} blue={this.state.rgb.blue}/>
         </div>
       </div>
     );
