@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
 
-function invertColors(red, blue, green) {
+function invertColor(rbgValue) {
+  return 255 - rbgValue;
+};
 
-}
+function rgbToHex(red, green, blue) {
+  var rgb = [red, green, blue];
+  var hex = [];
+  for (let i = 0; i < 3; i++) {
+    hex.push(Number(rgb[i]).toString(16));
+    if (hex[i].length < 2) {
+      hex[i] = "0" + hex[i];
+    }
+  };
+  return '#' + hex.join("");
+};
 
 class Input extends React.Component {
 
@@ -27,10 +39,12 @@ class App extends Component {
         'blue': 255,
       },
       rgbInverse: {
-        'red': 255,
-        'green': 255,
-        'blue': 255,
-      }
+        'red': 0,
+        'green': 0,
+        'blue': 0,
+      },
+      hex: '#FFFFFF',
+      hexInverse: '#000000'
     }
   }
 
@@ -41,21 +55,39 @@ class App extends Component {
           rgb: {'red': event.target.value,
                 'green': this.state.rgb.green,
                 'blue': this.state.rgb.blue
-          }})
+          },
+          rgbInverse: {'red': invertColor(event.target.value),
+                       'green': invertColor(this.state.rgb.green),
+                       'blue': invertColor(this.state.rgb.blue)
+          },
+          hex: rgbToHex(event.target.value, this.state.rgb.green, this.state.rgb.blue)
+        });
       break;
       case 'green':
         this.setState({
           rgb: {'red': this.state.rgb.red,
                 'green': event.target.value,
                 'blue': this.state.rgb.blue
-          }})
+          },
+          rgbInverse: {'red': invertColor(this.state.rgb.red),
+                       'green': invertColor(event.target.value),
+                       'blue': invertColor(this.state.rgb.blue)
+          },
+          hex: rgbToHex(this.state.rgb.red, event.target.value, this.state.rgb.blue)
+        });
         break;
       case 'blue':
         this.setState({
           rgb: {'red': this.state.rgb.red,
                 'green': this.state.rgb.green,
                 'blue': event.target.value
-          }})
+          },
+          rgbInverse: {'red': invertColor(this.state.rgb.value),
+                       'green': invertColor(this.state.rgb.green),
+                       'blue': invertColor(event.target.value)
+          },
+          hex: rgbToHex(this.state.rgb.red, this.state.rgb.green, event.target.value)
+        });
         break;
     }
   };
@@ -73,6 +105,7 @@ class App extends Component {
         </div>
         <div className="boxcont">
           <Box red={this.state.rgb.red} green={this.state.rgb.green} blue={this.state.rgb.blue}/>
+          <Box red={this.state.rgbInverse.red} green={this.state.rgbInverse.green} blue={this.state.rgbInverse.blue}/>
         </div>
       </div>
     );
