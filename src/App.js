@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import ReactBootStrapSlider from 'react-bootstrap-slider';
 
 function invertColor(rbgValue) {
   return 255 - rbgValue;
@@ -21,9 +22,9 @@ class Input extends React.Component {
 
   render() {
     return (
-      <div className="third">
+      <div>
         <h2>{this.props.color}</h2>
-        <input type="text" onChange={this.props.onChange} />
+        <input type="text" onChange={this.props.onChange}/>
       </div>
     );
   }
@@ -60,7 +61,8 @@ class App extends Component {
                        'green': invertColor(this.state.rgb.green),
                        'blue': invertColor(this.state.rgb.blue)
           },
-          hex: rgbToHex(event.target.value, this.state.rgb.green, this.state.rgb.blue)
+          hex: rgbToHex(event.target.value, this.state.rgb.green, this.state.rgb.blue),
+          hexInverse: rgbToHex(invertColor(event.target.value), this.state.rgbInverse.green, this.state.rgbInverse.blue)
         });
       break;
       case 'green':
@@ -73,7 +75,8 @@ class App extends Component {
                        'green': invertColor(event.target.value),
                        'blue': invertColor(this.state.rgb.blue)
           },
-          hex: rgbToHex(this.state.rgb.red, event.target.value, this.state.rgb.blue)
+          hex: rgbToHex(this.state.rgb.red, event.target.value, this.state.rgb.blue),
+          hexInverse: rgbToHex(this.state.rgbInverse.red, invertColor(event.target.value), this.state.rgbInverse.blue)
         });
         break;
       case 'blue':
@@ -82,11 +85,12 @@ class App extends Component {
                 'green': this.state.rgb.green,
                 'blue': event.target.value
           },
-          rgbInverse: {'red': invertColor(this.state.rgb.value),
+          rgbInverse: {'red': invertColor(this.state.rgb.red),
                        'green': invertColor(this.state.rgb.green),
                        'blue': invertColor(event.target.value)
           },
-          hex: rgbToHex(this.state.rgb.red, this.state.rgb.green, event.target.value)
+          hex: rgbToHex(this.state.rgb.red, this.state.rgb.green, event.target.value),
+          hexInverse: rgbToHex(this.state.rgbInverse.red, this.state.rgbInverse.green, invertColor(event.target.value))
         });
         break;
     }
@@ -99,9 +103,36 @@ class App extends Component {
           <h1>Title</h1>
         </div>
         <div>
-          <Input color='red' onChange={(e) => this.changeColor(e, 'red')}/>
-          <Input color='green' onChange={(e) => this.changeColor(e, 'green')}/>
-          <Input color='blue' onChange={(e) => this.changeColor(e, 'blue')}/>
+          <div className="third">
+            <ReactBootStrapSlider
+              value={this.state.rgb.red}
+              change={(e) => this.changeColor(e, 'red')}
+              max={255}
+              min={0}
+              orientation='horizontal'
+            />
+            <Input color='red' onChange={(e) => this.changeColor(e, 'red')}/>
+          </div>
+          <div className="third">
+            <ReactBootStrapSlider
+              value={this.state.rgb.green}
+              change={(e) => this.changeColor(e, 'green')}
+              max={255}
+              min={0}
+              orientation='horizontal'
+            />
+            <Input color='green' onChange={(e) => this.changeColor(e, 'green')}/>
+          </div>
+          <div className="third">
+            <ReactBootStrapSlider
+              value={this.state.rgb.blue}
+              change={(e) => this.changeColor(e, 'blue')}
+              max={255}
+              min={0}
+              orientation='horizontal'
+            />
+            <Input color='blue' onChange={(e) => this.changeColor(e, 'blue')}/>
+          </div>
         </div>
         <div className="boxcont">
           <Box red={this.state.rgb.red} green={this.state.rgb.green} blue={this.state.rgb.blue}/>
