@@ -169,7 +169,11 @@ class Box extends React.Component {
 
   render() {
     return (
-      <div className="box" style={{backgroundColor: this.returnColor(this.state.red, this.state.green, this.state.blue,)}}></div>
+      <div className="box" style={{backgroundColor: this.returnColor(this.state.red, this.state.green, this.state.blue,)}}>
+        <div className="testheadingcont">
+          <h1 className="testheading">Lorem ipsum dolor</h1>
+        </div>
+      </div>
     );
   };
 };
