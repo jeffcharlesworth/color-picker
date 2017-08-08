@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReactBootStrapSlider from 'react-bootstrap-slider';
+import { observer } from 'mobx-react';
 import Input from './Input';
 import Box from './Box';
 import RgbInput from './rgbInput';
@@ -21,6 +22,7 @@ function rgbToHex(red, green, blue) {
   return '#' + hex.join("");
 };
 
+@observer
 class App extends Component {
   constructor() {
     super();
@@ -94,7 +96,7 @@ class App extends Component {
           <h1>Title</h1>
         </div>
         <div className="controlcont col-md-3">
-          <RgbInput colorStr='red' colorState={this.state.rgb.red}/>
+          {/* <RgbInput colorStr='red' colorState={this.state.rgb.red}/> */}
           <div className="third">
             <ReactBootStrapSlider
               value={this.state.rgb.green}
