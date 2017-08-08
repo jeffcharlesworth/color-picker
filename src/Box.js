@@ -1,23 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { observer } from 'mobx-react';
 
+@observer
 export default class Box extends React.Component {
-  constructor(props) {
-    super();
-    this.state = {
-      red: props.red,
-      green: props.green,
-      blue: props.blue,
-    }
-  }
-
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      red: newProps.red,
-      green: newProps.green,
-      blue: newProps.blue,
-  });
-}
-
   returnColor(red, green, blue) {
     return (
       "rgb(" + red + "," + green + "," + blue + ")"
@@ -26,7 +11,7 @@ export default class Box extends React.Component {
 
   render() {
     return (
-      <div className="box" style={{backgroundColor: this.returnColor(this.state.red, this.state.green, this.state.blue,)}}>
+      <div className="box" style={{backgroundColor: this.returnColor(this.props.store.rgb.red, this.props.store.rgb.green, this.props.store.rgb.blue,)}}>
         <div className="testheadingcont">
           <h1 className="testheading">Lorem ipsum dolor</h1>
         </div>
