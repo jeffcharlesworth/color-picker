@@ -5,22 +5,7 @@ import { observer } from 'mobx-react';
 import './App.css';
 import Box from './Box';
 import RgbInput from './rgbInput';
-
-function invertColor(rbgValue) {
-  return 255 - rbgValue;
-};
-
-function rgbToHex(red, green, blue) {
-  var rgb = [red, green, blue];
-  var hex = [];
-  for (let i = 0; i < 3; i++) {
-    hex.push(Number(rgb[i]).toString(16));
-    if (hex[i].length < 2) {
-      hex[i] = "0" + hex[i];
-    }
-  };
-  return '#' + hex.join("");
-};
+import BoxInverse from './BoxInverse';
 
 @observer
 class App extends Component {
@@ -40,7 +25,7 @@ class App extends Component {
         </div>
         <div className="boxcont col-md-9">
           <Box store={this.props.store}/>
-
+          <BoxInverse store={this.props.store}/>
         </div>
       </div>
     );
