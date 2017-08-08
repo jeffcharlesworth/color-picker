@@ -3,6 +3,7 @@ import './App.css';
 import ReactBootStrapSlider from 'react-bootstrap-slider';
 import Input from './Input';
 import Box from './Box';
+import RgbInput from './rgbInput';
 
 function invertColor(rbgValue) {
   return 255 - rbgValue;
@@ -92,17 +93,8 @@ class App extends Component {
         <div className="header">
           <h1>Title</h1>
         </div>
-        <div>
-          <div className="third">
-            <ReactBootStrapSlider
-              value={this.state.rgb.red}
-              change={(e) => this.changeColor(e, 'red')}
-              max={255}
-              min={0}
-              orientation='horizontal'
-            />
-            <Input color='red' onChange={(e) => this.changeColor(e, 'red')}/>
-          </div>
+        <div className="controlcont col-md-3">
+          <RgbInput colorStr='red' colorState={this.state.rgb.red}/>
           <div className="third">
             <ReactBootStrapSlider
               value={this.state.rgb.green}
@@ -124,7 +116,7 @@ class App extends Component {
             <Input color='blue' onChange={(e) => this.changeColor(e, 'blue')}/>
           </div>
         </div>
-        <div className="boxcont">
+        <div className="boxcont col-md-9">
           <Box red={this.state.rgb.red} green={this.state.rgb.green} blue={this.state.rgb.blue}/>
           <Box red={this.state.rgbInverse.red} green={this.state.rgbInverse.green} blue={this.state.rgbInverse.blue}/>
         </div>

@@ -20,8 +20,7 @@
 }
 
 .third {
-  width: 33%;
-  display: inline-block;
+
 }
 
 .box {
@@ -44,6 +43,10 @@
 .testheadingcont {
   padding-top: 40%;
   height: 4rem;
+}
+
+.controlcont {
+
 }
 
 @keyframes App-logo-spin {
