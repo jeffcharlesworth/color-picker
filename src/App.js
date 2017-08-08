@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReactBootStrapSlider from 'react-bootstrap-slider';
+import Input from './Input';
+import Box from './Box';
 
 function invertColor(rbgValue) {
   return 255 - rbgValue;
@@ -16,18 +18,6 @@ function rgbToHex(red, green, blue) {
     }
   };
   return '#' + hex.join("");
-};
-
-class Input extends React.Component {
-
-  render() {
-    return (
-      <div>
-        <h2>{this.props.color}</h2>
-        <input type="text" onChange={this.props.onChange}/>
-      </div>
-    );
-  }
 };
 
 class App extends Component {
@@ -141,42 +131,6 @@ class App extends Component {
       </div>
     );
   }
-}
-
-class Box extends React.Component {
-  constructor(props) {
-    super();
-    this.state = {
-      red: props.red,
-      green: props.green,
-      blue: props.blue,
-    }
-  }
-
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      red: newProps.red,
-      green: newProps.green,
-      blue: newProps.blue,
-  });
-}
-
-  returnColor(red, green, blue) {
-    return (
-      "rgb(" + red + "," + green + "," + blue + ")"
-    )
-  }
-
-  render() {
-    return (
-      <div className="box" style={{backgroundColor: this.returnColor(this.state.red, this.state.green, this.state.blue,)}}>
-        <div className="testheadingcont">
-          <h1 className="testheading">Lorem ipsum dolor</h1>
-        </div>
-      </div>
-    );
-  };
 };
-
 
 export default App;
