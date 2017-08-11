@@ -13,7 +13,7 @@ export default class Box extends React.Component {
     return (
       <div className="box" style={{backgroundColor: this.returnColor(this.props.store.inverseRgb.red, this.props.store.inverseRgb.green, this.props.store.inverseRgb.blue,)}}>
         <div className="testheadingcont">
-          <h1 className="testheading">Lorem ipsum dolor</h1>
+          <h1 className="testheading">{this.props.store.inverseHex}</h1>
         </div>
       </div>
     );
