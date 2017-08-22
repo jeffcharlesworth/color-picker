@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import { rgbToHex } from './lib/color-switch'
 
 @observer
 export default class Box extends React.Component {
@@ -13,7 +14,7 @@ export default class Box extends React.Component {
     return (
       <div className="box" style={{backgroundColor: this.returnColor(this.props.store.rgb.red, this.props.store.rgb.green, this.props.store.rgb.blue,)}}>
         <div className="testheadingcont">
-          <h1 className="testheading">{this.props.store.hex}</h1>
+          <h2 className="testheading">{rgbToHex(this.props.store.rgb.red, this.props.store.rgb.green, this.props.store.rgb.blue)}</h2>
         </div>
       </div>
     );

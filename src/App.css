@@ -24,15 +24,34 @@
 }
 
 .box {
-  width: 15rem;
-  height: 15rem;
+  width: 10rem;
+  height: 5rem;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 50%;
+  display: inline-block;
+}
+
+.topcontainer {
+  margin-top: 5rem;
+  margin-bottom: 5 rem;
+  display: block;
+  height: 40rem;
 }
 
 .boxcont {
-  margin-top: 10rem;
+  display: inline-block;
+}
+
+.compbox {
+  display: inline-block;
+  height: 5rem;
+  width: 10rem;
+}
+
+.compline {
+  width: 100%;
+  display: block;
+  margin-top: 5%;
 }
 
 .testheading {
@@ -41,12 +60,12 @@
 }
 
 .testheadingcont {
-  padding-top: 40%;
+  padding-top: 50%;
   height: 4rem;
 }
 
 .controlcont {
-
+  display: inline-block;
 }
 
 #colorWell {

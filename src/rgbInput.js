@@ -21,15 +21,37 @@ class RgbInput extends Component {
 
   render() {
     return (
-      <div className="third ">
-        <h2>{this.props.colorStr}</h2>
-        <ReactBootStrapSlider
-          value={this.props.colorState}
-          change={(e) => this.changeColor(e, this.props.colorStr)}
-          max={255}
-          min={0}
-          orientation='horizontal'
-        />
+      <div>
+        <div className="third ">
+          <h2>Red</h2>
+          <ReactBootStrapSlider
+            value={this.props.store.rgb.red}
+            change={(e) => this.changeColor(e, 'red')}
+            max={255}
+            min={0}
+            orientation='horizontal'
+          />
+        </div>
+        <div className="third ">
+          <h2>Blue</h2>
+          <ReactBootStrapSlider
+            value={this.props.store.rgb.blue}
+            change={(e) => this.changeColor(e, 'blue')}
+            max={255}
+            min={0}
+            orientation='horizontal'
+          />
+        </div>
+        <div className="third ">
+          <h2>Green</h2>
+          <ReactBootStrapSlider
+            value={this.props.store.rgb.green}
+            change={(e) => this.changeColor(e, 'green')}
+            max={255}
+            min={0}
+            orientation='horizontal'
+          />
+        </div>
       </div>
     );
   }
