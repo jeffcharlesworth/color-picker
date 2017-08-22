@@ -59,8 +59,10 @@ export function rgbToHsl(r, g, b){
     return [Math.floor(h * 360), Math.floor(s * 100), Math.floor(l * 100)];
 };
 
-export function invertRgb(rgb) {
-  return (rgb - 255) * -1
+export function inverse(h, s, l) {
+  var first = [h, s,l]
+  var second = [h - 180, s, l]
+  return [first, second]
 };
 
 export function saturation(h, s, l) {
@@ -74,17 +76,17 @@ export function saturation(h, s, l) {
 
 export function triadic(h, s, l) {
   var first = [h, s , l]
-  var second = [h -120, s , l]
-  var third = [h -240, s , l]
+  var second = [h -240, s , l]
+  var third = [h -120, s , l]
 
   return [first, second, third]
 }
 
 export function quadratic(h, s, l) {
   var first = [h, s , l]
-  var second = [h - 90, s , l]
+  var second = [h - 270, s , l]
   var third = [h - 180, s , l]
-  var fourth = [h - 270, s , l]
+  var fourth = [h - 90, s , l]
 
   return [first, second, third, fourth]
 }
@@ -108,6 +110,6 @@ export function compTwo(h, s, l) {
   var seventh = [h - 108 * -1 , s, l]
   var eighth = [h - 72 * -1 , s, l]
   var nineth = [h - 36 * -1 , s, l]
-  
+
   return [first, second, third, fourth, fifth, sixth, seventh, eighth, nineth]
 }

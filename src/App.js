@@ -27,8 +27,6 @@ class App extends Component {
             </div>
             <div className="boxcont col-md-9">
               <div>
-                <Box store={this.props.store}/>
-                <BoxInverse store={this.props.store}/>
                 <BoxComp store={this.props.store}/>
               </div>
             </div>

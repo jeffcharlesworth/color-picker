@@ -50,13 +50,18 @@
 
 .compline {
   width: 100%;
-  display: block;
-  margin-top: 5%;
+  display: inline-block;
+  margin-bottom: 5%;
 }
 
-.testheading {
+.complineheading {
+  margin-bottom: 5rem;
+  display: inline-block;
+}
 
-
+.hexheading:hover {
+  color: #c9c9c9;
+  cursor: pointer;
 }
 
 .testheadingcont {
@@ -69,7 +74,7 @@
 }
 
 #colorWell {
-  height: 3rem;
+  height: 6rem;
 }
 
 @keyframes App-logo-spin {
