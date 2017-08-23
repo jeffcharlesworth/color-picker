@@ -9,6 +9,8 @@ import BoxHsl from './BoxHsl';
 import ColorWell from './ColorWell';
 import HslInput from './hslInput';
 import BoxComp from './BoxComp';
+import { rgbToHex } from './lib/color-switch';
+import ColorHeading from './ColorHeading';
 
 @observer
 class App extends Component {
@@ -18,14 +20,22 @@ class App extends Component {
     return (
       <div className="App">
         <div className="header">
-          <h1>Title</h1>
+          <h1>Quick color picker</h1>
         </div>
           <div className="topcontainer">
-            <div className="controlcont col-md-3">
-              <ColorWell store={this.props.store}/>
-              <RgbInput store={this.props.store}/>
+            <div className='intro'>
+              <p>Welcome to Quick Color Picker! choose a color to start,
+                adjust with the red, blue, green options and then click
+                the hex code to copy to your clipboard.</p>
             </div>
-            <div className="boxcont col-md-9">
+            <div>
+              <ColorHeading text='Pick a color' store={this.props.store}/>
+              <div className='colorselect'>
+                <ColorWell store={this.props.store}/>
+              </div>
+            </div>
+              <RgbInput store={this.props.store}/>
+            <div className="boxcont">
               <div>
                 <BoxComp store={this.props.store}/>
               </div>

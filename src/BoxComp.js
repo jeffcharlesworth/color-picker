@@ -21,7 +21,7 @@ export default class Box extends React.Component {
         //var rgbHeading = this.store.rgb
         comps.push(<div className="compbox" key={i} style={{backgroundColor: returnColor(colorSchema[i][0], colorSchema[i][1], colorSchema[i][2],)}}>
             <CopyToClipBoard text={hexCode}>
-              <div className="testheadingcont">
+              <div className="hexheadingcont">
                 <h2 className="hexheading">{hexCode}</h2>
               </div>
             </CopyToClipBoard>
@@ -33,7 +33,7 @@ export default class Box extends React.Component {
     var comps = []
 
     return (
-      <div className='compline boxcont'>
+      <div className='boxcont'>
         <div className='compline'>
           <h2>Complementary</h2>
           {createBlock(this.props.store.inverse)}

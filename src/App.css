@@ -8,11 +8,21 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
+.header {
+  background-color: #333;
   height: 150px;
-  padding: 20px;
+  padding-top: 3rem;
   color: white;
+}
+
+.intro {
+  font-size: 1.5rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.header h1 {
+  font-size: 2.7rem;
 }
 
 .App-intro {
@@ -20,7 +30,8 @@
 }
 
 .third {
-  padding-top: 5rem;
+  padding: 5rem;
+  display: inline-block;
 }
 
 .box {
@@ -29,6 +40,23 @@
   margin-left: auto;
   margin-right: auto;
   display: inline-block;
+}
+
+.colorselect {
+    display: inline-block;
+    padding: 5rem;
+    width: 50%;
+}
+
+.colorselecttext {
+    display: inline-block;
+    padding: 3rem;
+    width: 30%;
+    text-align: center;
+}
+
+.colorselecttext h2 {
+  font-size: 3rem;
 }
 
 .topcontainer {
@@ -40,16 +68,17 @@
 
 .boxcont {
   display: inline-block;
+  width: 90%;
 }
 
 .compbox {
   display: inline-block;
   height: 5rem;
-  width: 10rem;
+  width: 75%;
 }
 
 .compline {
-  width: 100%;
+  width: 90%;
   display: inline-block;
   margin-bottom: 5%;
 }
@@ -59,22 +88,28 @@
   display: inline-block;
 }
 
+.hexheadingcont {
+  width: 25%;
+  display: inline-block;
+}
+
+.hexheading {
+  padding-top: 1.4rem;
+}
+
 .hexheading:hover {
   color: #c9c9c9;
   cursor: pointer;
 }
 
-.testheadingcont {
-  padding-top: 50%;
-  height: 4rem;
-}
-
 .controlcont {
-  display: inline-block;
+  display: inline;
 }
 
 #colorWell {
-  height: 6rem;
+  height: 10rem;
+  width: 100%;
+  display: inline-block;
 }
 
 @keyframes App-logo-spin {
