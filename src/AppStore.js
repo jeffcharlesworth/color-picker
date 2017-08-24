@@ -1,5 +1,5 @@
 import { observable, autorun } from 'mobx';
-import { hslToRgb, comp, quadratic, triadic, inverse, splitComp, saturation, rgbToHsl, rgbToHex } from './lib/color-switch';
+import { quadratic, triadic, inverse, splitComp, saturation, rgbToHsl, rgbToHex } from './lib/color-switch';
 
 class ObservableAppStore {
   @observable rgb = {
@@ -30,9 +30,6 @@ autorun(() => {
 });
 autorun(() => {
   store.hex = rgbToHex(store.rgb.red, store.rgb.green, store.rgb.blue);
-});
-autorun(() => {
-  store.inverseHex = rgbToHex(store.inverseRgb.red, store.inverseRgb.green, store.inverseRgb.blue);
 });
 autorun(() => {
   store.triadic = triadic(store.hsl[0], store.hsl[1], store.hsl[2]);

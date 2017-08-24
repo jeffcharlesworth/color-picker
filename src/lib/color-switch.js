@@ -5,7 +5,7 @@ export function hslToRgb(h, s, l){
     l = l/100
 
 
-    if(s == 0){
+    if(s === 0){
         r = g = b = l; // achromatic
     }else{
         var hue2rgb = function hue2rgb(p, q, t){
@@ -39,11 +39,13 @@ export function rgbToHex(red, green, blue) {
 };
 
 export function rgbToHsl(r, g, b){
-    r /= 255, g /= 255, b /= 255;
+    r /= 255;
+    g /= 255;
+    b /= 255;
     var max = Math.max(r, g, b), min = Math.min(r, g, b);
     var h, s, l = (max + min) / 2;
 
-    if(max == min){
+    if(max === min){
         h = s = 0; // achromatic
     }else{
         var d = max - min;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { comp, hslToRgb, rgbToHex } from './lib/color-switch';
+import { hslToRgb, rgbToHex } from './lib/color-switch';
 import CopyToClipBoard from 'react-copy-to-clipboard';
 
 @observer
@@ -18,7 +18,6 @@ export default class Box extends React.Component {
       for (var i = 0; i < colorSchema.length; i++) {
         var rgbHeading = hslToRgb(colorSchema[i][0], colorSchema[i][1], colorSchema[i][2]);
         var hexCode = rgbToHex(rgbHeading[0], rgbHeading[1], rgbHeading[2]);
-        //var rgbHeading = this.store.rgb
         comps.push(<div className="compbox" key={i} style={{backgroundColor: returnColor(colorSchema[i][0], colorSchema[i][1], colorSchema[i][2],)}}>
             <CopyToClipBoard text={hexCode}>
               <div className="hexheadingcont">
@@ -29,8 +28,6 @@ export default class Box extends React.Component {
       };
       return comps
     }
-
-    var comps = []
 
     return (
       <div className='boxcont'>

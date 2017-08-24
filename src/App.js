@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
 import './App.css';
-import Box from './Box';
 import RgbInput from './rgbInput';
-import BoxInverse from './BoxInverse';
-import BoxHsl from './BoxHsl';
 import ColorWell from './ColorWell';
-import HslInput from './hslInput';
 import BoxComp from './BoxComp';
-import { rgbToHex } from './lib/color-switch';
 import ColorHeading from './ColorHeading';
 
 @observer

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react';
 
 import { hslToRgb, rgbToHex } from './lib/color-switch';
