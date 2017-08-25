@@ -115,3 +115,29 @@ export function compTwo(h, s, l) {
 
   return [first, second, third, fourth, fifth, sixth, seventh, eighth, nineth]
 }
+
+// Helper functions for returning color codes
+
+export function textContrast(r, g, b) {
+    var d = 0;
+    var a = 1 - ( 0.299 * r + 0.587 * g + 0.114 * b)/255;
+
+    if (a < 0.5)
+       d = 0;
+    else
+       d = 255;
+
+    return  d;
+}
+
+export function returnHsl(h, s, l) {
+    return (
+      "hsl(" + h + ", " + s + "%, " + l + "%)"
+    )
+};
+
+export function returnRgb(r, g, b) {
+  return (
+    "rgb(" + r + ", " + g + ", " + b + ")"
+  )
+};

@@ -1,27 +1,23 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { hslToRgb, rgbToHex } from './lib/color-switch';
+import { hslToRgb, rgbToHex, textContrast, returnHsl, returnRgb } from './lib/color-switch';
 import CopyToClipBoard from 'react-copy-to-clipboard';
 
 @observer
 export default class Box extends React.Component {
 
   render() {
-    function returnColor(h, s, l) {
-        return (
-          "hsl(" + h + ", " + s + "%, " + l + "%)"
-        )
-    };
 
     function createBlock(colorSchema) {
       var comps = [];
       for (var i = 0; i < colorSchema.length; i++) {
         var rgbHeading = hslToRgb(colorSchema[i][0], colorSchema[i][1], colorSchema[i][2]);
+        var textColor = textContrast(rgbHeading[0], rgbHeading[1], rgbHeading[2])
         var hexCode = rgbToHex(rgbHeading[0], rgbHeading[1], rgbHeading[2]);
-        comps.push(<div className="compbox" key={i} style={{backgroundColor: returnColor(colorSchema[i][0], colorSchema[i][1], colorSchema[i][2],)}}>
+        comps.push(<div className="compbox" key={i} style={{backgroundColor: returnHsl(colorSchema[i][0], colorSchema[i][1], colorSchema[i][2],)}}>
             <CopyToClipBoard text={hexCode}>
               <div className="hexheadingcont">
-                <h2 className="hexheading">{hexCode}</h2>
+                <h2 className="hexheading" style={{color: returnRgb(textColor, textColor, textColor) }}>{hexCode}</h2>
               </div>
             </CopyToClipBoard>
         </div>)

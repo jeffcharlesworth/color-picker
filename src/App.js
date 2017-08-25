@@ -6,6 +6,7 @@ import RgbInput from './rgbInput';
 import ColorWell from './ColorWell';
 import BoxComp from './BoxComp';
 import ColorHeading from './ColorHeading';
+import ColorBanner from './ColorBanner';
 
 @observer
 class App extends Component {
@@ -14,29 +15,23 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="header">
-          <h1>Quick color picker</h1>
-        </div>
+        <ColorBanner store={this.props.store}/>
+        <div className="page-cont">
           <div className="topcontainer">
-            <div className='intro'>
-              <p>Welcome to Quick Color Picker! choose a color to start,
-                adjust with the red, blue, green options and then click
-                the hex code to copy to your clipboard.</p>
-            </div>
             <div>
               <ColorHeading text='Pick a color' store={this.props.store}/>
               <div className='colorselect'>
                 <ColorWell store={this.props.store}/>
               </div>
+                <RgbInput store={this.props.store}/>
             </div>
-              <RgbInput store={this.props.store}/>
-            <div className="boxcont">
-              <div>
-                <BoxComp store={this.props.store}/>
+              <div className="boxcont">
+                <div>
+                  <BoxComp store={this.props.store}/>
+                </div>
               </div>
             </div>
           </div>
-
       </div>
     );
   }

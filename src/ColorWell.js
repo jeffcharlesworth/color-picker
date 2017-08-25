@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
+import { SketchPicker } from 'react-color';
+import reactCSS from 'reactcss';
 
 @observer
 class ColorWell extends Component {
@@ -10,12 +12,18 @@ class ColorWell extends Component {
     this.props.store.rgb.blue = parseInt(hex[5] + hex[6], 16);
   };
 
+  handleChange = (color, event) => {
+    this.hexToRgb(color.hex)
+  };
+
   render () {
     return(
-      <input type="color"
-        value={this.props.store.hex}
-        onChange={(e) => { this.hexToRgb(e.target.value) }}
-        id="colorWell" />
+      <SketchPicker
+        onChange={ this.handleChange }
+        color={ this.props.store.hex }
+        disableAlpha={true}
+        width={250}
+      />
     )
   }
 };

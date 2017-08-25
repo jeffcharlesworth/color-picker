@@ -8,30 +8,37 @@
   height: 80px;
 }
 
-.header {
-  background-color: #333;
-  height: 150px;
-  padding-top: 3rem;
+.banner {
   color: white;
 }
 
-.intro {
-  font-size: 1.5rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+.banner h1 {
+  padding-top: 6rem;
+  padding-bottom: 1rem;
 }
 
-.header h1 {
-  font-size: 2.7rem;
+.intro {
+  font-size: 1rem;
+  padding-left: 18%;
+  padding-right: 18%;
+  padding-bottom: 2rem;
+  text-align: center;
 }
 
 .App-intro {
   font-size: large;
 }
 
-.third {
-  padding: 5rem;
-  display: inline-block;
+.page-cont {
+  max-width: 150rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.chrome-picker {
+  margin-left: 20rem;
 }
 
 .box {
@@ -42,16 +49,55 @@
   display: inline-block;
 }
 
+.sketch-picker {
+  margin-right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* rgb input container */
+
+.input-cont {
+  width: 18rem;
+  height: 400px;
+  display: inline-block;
+}
+
+.third {
+  display: inline-block;
+  width: 18rem;
+  padding-top: 2rem;
+}
+
+.third-header {
+  width: 2.5rem;
+  display: inline-block;
+  height: 5rem;
+  text-align: left;
+}
+
+.third-slider {
+  width: 70%;
+  display: inline-block;
+  height: 5rem;
+  padding-left: 2rem;
+}
+
+.slider.slider-horizontal {
+    width: 150px;
+    height: 20px;
+}
+
 .colorselect {
     display: inline-block;
-    padding: 5rem;
-    width: 50%;
+    padding: 1rem;
+    width: 20rem;
 }
 
 .colorselecttext {
     display: inline-block;
     padding: 3rem;
-    width: 30%;
+    width: 90%;
     text-align: center;
 }
 
@@ -66,21 +112,25 @@
   height: 40rem;
 }
 
+/* Comp box container */
+
 .boxcont {
   display: inline-block;
-  width: 90%;
+  width: 100%;
 }
 
 .compbox {
-  display: inline-block;
   height: 5rem;
-  width: 75%;
+  max-width: 500rem;
+  min-width: 10rem;
 }
 
 .compline {
-  width: 90%;
-  display: inline-block;
-  margin-bottom: 5%;
+  min-width: 15rem;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
 }
 
 .complineheading {
@@ -104,15 +154,4 @@
 
 .controlcont {
   display: inline;
-}
-
-#colorWell {
-  height: 10rem;
-  width: 100%;
-  display: inline-block;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
